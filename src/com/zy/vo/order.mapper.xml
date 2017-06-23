@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zy.vo.order.mapper">
+	<select id="list" resultType="Order">
+		SELECT * FROM t_order
+	</select>
+	
+	<update id="update" parameterType="Order">
+		UPDATE t_order SET deskId=#{deskId},totalPrice=#{totalPrice} WHERE id=#{id}
+	</update>
+	
+	<select id="getById" resultType="Order">
+		SELECT * FROM t_order WHERE id=#{id}
+	</select>
+	
+</mapper>

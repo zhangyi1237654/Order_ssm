@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zy.vo.detail.mapper">
+	<select id="listByOrderId" resultMap="DetailMenu" parameterType="int">
+		SELECT * FROM t_orderdetail WHERE orderId=#{orderId}
+	</select>
+	<resultMap type="Detail" id="DetailMenu">
+		<association property="menu" column="menuId" javaType="Menu" select="com.zy.vo.menu.mapper.getById"></association>
+	</resultMap>
+	<delete id="remove" parameterType="int">
+		DELETE FROM t_orderdetail WHERE id=#{id}
+	</delete>
+</mapper>
